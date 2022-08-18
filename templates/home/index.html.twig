@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<div class="formContainer">
+
+<div  class="navBar">
+  <a href="{{ path('app_convention') }} "><button  class="btn btn-info"  type="submit" >convention</button></a>
+  <a href="{{ path('app_observation') }}"><button  class="btn btn-info"  type="submit" >observation</button></a>
+  <a href="{{ path('app_partenaire') }}"><button  class="btn btn-info"  type="submit" >partenaire</button></a>
+  <a href="{{ path('app_province') }}"><button  class="btn btn-info"  type="submit" >province</button></a>
+  <a href="{{ path('app_secteur') }}"><button  class="btn btn-info"  type="submit" >secteur</button></a>
+
+
+
+</div>
+</div>
+{% endblock %}
