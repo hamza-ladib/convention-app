@@ -6,11 +6,8 @@ use App\Entity\Convention;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-
-
-class ConventionType extends AbstractType
+class TestType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -32,7 +29,6 @@ class ConventionType extends AbstractType
             ->add('saison')
             ->add('ID_secteur')
             ->add('ID_province')
-            ->add('save', SubmitType::class,['attr'=>['class'=>'btna']])
         ;
     }
 

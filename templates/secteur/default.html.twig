@@ -1,0 +1,33 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="container">
+<a href="{{ path('app_add_secteur') }}"><button type="button" class="btn btn-primary">add secteur</button></td></a>
+
+<table class="table">
+ <thead class="thead-dark">
+    <tr>
+      <th scope="col"># ID</th>
+      <th scope="col">lebelles</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody  style="color: white;">
+   {% for secteur  in secteurs %}
+    <tr>
+      <th scope="row">{{secteur.getId()}}</th>
+      <td>{{secteur.getLibelles()}}</td>
+      <td>
+<a><button type="button" class="btn btn-danger">Del</button></a>
+<a><button type="button" class="btn btn-warning">Modify</button></td></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    </div>
+{% endblock %}
