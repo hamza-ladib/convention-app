@@ -42,7 +42,51 @@ class SecteurController extends AbstractController
                 'secteurs' => $secteur,
             ]);
         }
+        //////////////////////////
+        /**
+     * @Route("/secteur/edit/{id}", name="app_edit_secteur")
+     */
+    public function editSecteur(Request $request,$id): Response
+    {
+ 
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $secteur=$this->getDoctrine()
+            ->getRepository(Secteur::class)
+            ->find($id);;
+        $form = $this->createForm(SecteurType::class, $secteur);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+        $entityManager = $this->getDoctrine()->getManager();
+       // $entityManager->persist($secteur);
+        $entityManager->flush();
+        return $this->redirectToRoute('app_secteur');
+    } 
+    return $this->render('secteur/index.html.twig', [
+    'form' => $form->createView(),
+]);
+    }
+    //////////////////////////////
     
+       /**
+     * @Route("/secteur/del/{id}", name="app_del_secteur")
+     */
+    public function delSecteur($id): Response
+    {
+
+$entityManager = $this->getDoctrine()->getManager();
+
+        $secteur=$this->getDoctrine()
+            ->getRepository(Secteur::class)
+            ->find($id);;
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($secteur);
+        $entityManager->flush();
+        return $this->redirectToRoute('app_secteur');
+    }
+
+
 
 
 

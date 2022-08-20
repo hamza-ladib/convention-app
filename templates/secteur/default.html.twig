@@ -21,8 +21,10 @@
       <th scope="row">{{secteur.getId()}}</th>
       <td>{{secteur.getLibelles()}}</td>
       <td>
-<a><button type="button" class="btn btn-danger">Del</button></a>
-<a><button type="button" class="btn btn-warning">Modify</button></td></a>
+<a  href="{{ path('app_del_secteur',{'id':secteur.getId()}) }}"
+><button type="button" class="btn btn-danger">Del</button></a>
+<a href="{{ path('app_edit_secteur',{'id':secteur.getId()}) }}"
+><button type="button" class="btn btn-warning">Modify</button></td></a>
       </td>
     </tr>
     {% endfor %}
