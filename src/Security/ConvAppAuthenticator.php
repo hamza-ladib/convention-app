@@ -30,6 +30,7 @@ class ConvAppAuthenticator extends AbstractFormLoginAuthenticator implements Pas
     private $urlGenerator;
     private $csrfTokenManager;
     private $passwordEncoder;
+   
 
     public function __construct(EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder)
     {
@@ -69,6 +70,7 @@ class ConvAppAuthenticator extends AbstractFormLoginAuthenticator implements Pas
 
         $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
 
+ 
         if (!$user) {
             throw new UsernameNotFoundException('Email could not be found.');
         }
